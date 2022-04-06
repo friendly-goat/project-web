@@ -1,24 +1,14 @@
-// import logo from './logo.svg';
-// import './App.css';
-import Navbar from './Navbar';
-import Home from './Home';
-
+import './App.css'
+import Header from './Components/Header/Header';
+import Slider from './Components/Slider/Slider';
+import Catalog from './Components/Catalog/Catalog';
 function App() {
-  // const title = 'Welcome to website'
-  // const likes = 69
-  // const link = "http://www.google.com"
   return (
-    <div className="App">
-      <Navbar />
-      <div className="content">
-        <Home />
-        {/* <p>Liked:{likes}</p>
-        <p>{ 10 }</p>
-        <p>{"Hello World"}</p>
-        <p>{ Math.random() * 10}</p>
-        <a href="{link}">Google site</a> */}
-      </div>
-    </div>
+    <>
+      <Header />
+      <Slider />
+      <Catalog />
+    </>
   );
 }
 

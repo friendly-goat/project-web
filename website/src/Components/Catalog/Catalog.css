@@ -1,0 +1,17 @@
+#catalog-container{
+    background-color: #FECDAA;
+    border: 3px solid black;
+    max-width: 900px;
+    height: fit-content;
+    height: 700px;
+    margin: 10px auto 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+  }
+  @media (max-height: 1000px) and (max-width: 900px){
+    #catalog-container {
+      margin: 0px 0px 0;
+    }
+  }
