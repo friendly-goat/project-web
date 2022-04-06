@@ -1,5 +1,7 @@
 #main-container{
-    opacity: 90%;
+    opacity: 100%;
     background-color: #66101F;
     height: 50px;
+    width: 100%;
 }
+

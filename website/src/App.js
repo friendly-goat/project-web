@@ -5,9 +5,13 @@ import Catalog from './Components/Catalog/Catalog';
 function App() {
   return (
     <>
-      <Header />
-      <Slider />
-      <Catalog />
+      <div id='slider_div'>
+        <div id='header_div'>
+          <Header />
+        </div>
+        <Slider />
+      </div>
+        <Catalog />
     </>
   );
 }
