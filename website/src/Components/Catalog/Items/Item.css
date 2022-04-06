@@ -1,0 +1,22 @@
+#item-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.item-preview {
+    background-color: rgb(126, 192, 230);
+    width: 300px;
+    margin: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+#item-pic {
+
+  height: 100px;
+  width: 100px;
+}
