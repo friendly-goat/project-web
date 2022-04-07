@@ -26,4 +26,6 @@ STACK:
 Workfow instructions:
     Simple React Snippets (VS extention)
         settings>emmet>emmet:include languages>key:javascript && value:javascriptreact>add
-    
+        React dev tool extention on browser
+    ES7+ React/Redux/React-Native snippets (VS extention)
+    Prettier - Code formatter (VS extention)
