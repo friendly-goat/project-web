@@ -1,5 +1,5 @@
 import './Catalog.css'
-import Item from './Item/Item';
+import Item from './Items/Item';
 const Catalog = () => {
     return ( 
         <div id="catalog-container">

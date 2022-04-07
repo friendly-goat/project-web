@@ -1,9 +1,9 @@
 #catalog-container{
     background-color: #FECDAA;
     border: 3px solid black;
-    max-width: 900px;
+    max-width: 100%;
     height: fit-content;
-    height: 700px;
+    height: 100vh;
     margin: 10px auto 0;
     position: relative;
     overflow: hidden;

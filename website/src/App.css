@@ -3,11 +3,6 @@
   margin: 0;
   padding: 0;
 }
-#page1{
-  position:relative;
-}
-
-
 body {
   font-family: Open sans, sans-serif;
   height: 100vh;
@@ -15,14 +10,3 @@ body {
   /* overflow: hidden; */
 }
 
-div#slider_div{
-  position: relative;
-  z-index: 1;
-}
-
-div#header_div {
-  width: 100%;
-  z-index: 2;
-  opacity: 50%;
-  position: absolute;
-}
