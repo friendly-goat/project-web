@@ -1,18 +1,17 @@
-import './App.css'
-import Header from './Components/Header/Header';
-import Slider from './Components/Slider/Slider';
-import Catalog from './Components/Catalog/Catalog';
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from "./homePage/Home";
+import Shop from "./shopPage/shop";
+import Error from "./errorPage/Error";
 function App() {
   return (
-    <>
-      <div id='slider_div'>
-        <div id='header_div'>
-          <Header />
-        </div>
-        <Slider />
-      </div>
-        <Catalog />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/shop" element={<Shop />}/>
+        <Route path="*" element={<Error />}/>
+      </Routes>
+    </Router>
   );
 }
 

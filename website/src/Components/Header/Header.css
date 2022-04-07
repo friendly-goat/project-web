@@ -1,7 +1,97 @@
 #main-container{
     opacity: 100%;
-    background-color: #66101F;
-    height: 50px;
+    /* background-color: #66101F; */
+    height: 8vh;
     width: 100%;
+    display: flex;
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    justify-content: space-evenly;
+    z-index: 1;
 }
-
+#welcome{
+    font-family: 'Roboto', serif;
+    font-size: 2vw;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #000000;
+    padding-left: auto;
+    padding-right: auto;
+    line-height: 1em;
+    object-fit: contain;
+    text-decoration: none;
+    z-index: 2;
+}
+@-webkit-keyframes welcome {
+    15% {
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px);
+    }
+    30% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+    50% {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px);
+    }
+    65% {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+    }
+    80% {
+        -webkit-transform: translateY(2px);
+        transform: translateY(2px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+@keyframes welcome {
+    15% {
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px);
+    }
+    30% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+    50% {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px);
+    }
+    65% {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+    }
+    80% {
+        -webkit-transform: translateY(2px);
+        transform: translateY(2px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+#welcome:hover{
+    font-family: 'Roboto', serif;
+    font-size: 2vw;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: rgb(124, 123, 221);
+    padding-left: auto;
+    padding-right: auto;
+    line-height: 1em;
+    object-fit: contain;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-animation: welcome 1s ease;
+    animation: welcome 1s ease;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
