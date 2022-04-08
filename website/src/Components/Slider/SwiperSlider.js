@@ -1,89 +1,65 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
-// react-id-swiper
-import Swiper from 'react-id-swiper';
+// import Swiper core and required modules
+import { Navigation, Pagination, Scrollbar, A11y, } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
 import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 // custom css
 import './SwiperSlider.css';
-//hello
+
 // images
 import image1 from '../../images/image1.jpg';
 import image2 from '../../images/image2.jpg';
 import image3 from '../../images/image3.jpg';
 
-// slider configuration
-const SwiperSliderConfigs = {
-  containerClass: 'swiper-container Swiper-slider',
-  parallax: true,
-  centeredSlides: true,
-  grabCursor: true,
-  speed: 500,
-  spaceBetween: 0,
-  effect: 'slide'
-};
-
 // slider component
 const SwiperSlider = () => {
-  const [parallaxSwiper, setParallaxSwiper] = useState(null);
-  const parallaxAmount = parallaxSwiper ? parallaxSwiper.width * 0.95 : 0;
-  const parallaxOpacity = 0.5;
   return (
-    <Swiper {...SwiperSliderConfigs} getSwiper={setParallaxSwiper}>
-      <div className="Swiper-slide">
-        <div
-          className="slide-image"
-          data-swiper-parallax={parallaxAmount}
-          data-swiper-parallax-opacity={parallaxOpacity}
-        >
+    <Swiper 
+      //{...SwiperSliderConfigs} getSwiper={setParallaxSwiper}
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      noSwipingClass='noSwiping'
+      spaceBetween={0}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
+      scrollbar={{ draggable: true }}
+      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log('slide change')}
+      className="mySwiper"
+    >
+      <SwiperSlide>
+        <div className="slide-image">
           <img src={image1} alt="image1"></img>
         </div>
-        <div className="col-md-6 offset-md-3 my-auto text-center text-white">
-          <h1 className="text-uppercase mb-2 font-weight-bold">Slide 1</h1>
-          <p className="mb-5 small">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et cumque,
-            ex quibusdam dolorem quae itaque velit. Nobis nesciunt sed corrupti
-            ab quia neque, porro laborum error, autem facilis voluptates
-            laboriosam?
-          </p>
+        <div className='overSlide noSwiping'>
+          <p>Hello there</p>
         </div>
-      </div>
-      <div className="Swiper-slide">
-        <div
-          className="slide-image"
-          data-swiper-parallax={parallaxAmount}
-          data-swiper-parallax-opacity={parallaxOpacity}
-        >
+      </SwiperSlide>
+
+      <SwiperSlide >
+        <div className="slide-image">
           <img src={image2} alt="image2"></img>
         </div>
-        <div className="col-md-6 offset-md-3 my-auto text-center text-white">
-          <h1 className="text-uppercase mb-2 font-weight-bold">Slide 1</h1>
-          <p className="mb-5 small">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et cumque,
-            ex quibusdam dolorem quae itaque velit. Nobis nesciunt sed corrupti
-            ab quia neque, porro laborum error, autem facilis voluptates
-            laboriosam?
-          </p>
+        <div className='overSlide noSwiping'>
+          <p></p>
         </div>
-      </div>
-      <div className="Swiper-slide">
-        <div
-          className="slide-image"
-          data-swiper-parallax={parallaxAmount}
-          data-swiper-parallax-opacity={parallaxOpacity}
-        >
+      </SwiperSlide>
+
+      <SwiperSlide>
+        <div className="slide-image">
           <img src={image3} alt="image3"></img>
         </div>
-        <div className="col-md-6 offset-md-3 my-auto text-center text-white">
-          <h1 className="text-uppercase mb-2 font-weight-bold">Slide 1</h1>
-          <p className="mb-5 small">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et cumque,
-            ex quibusdam dolorem quae itaque velit. Nobis nesciunt sed corrupti
-            ab quia neque, porro laborum error, autem facilis voluptates
-            laboriosam?
-          </p>
+        <div className='overSlide noSwiping'>
+          <p></p>
         </div>
-      </div>
+      </SwiperSlide>
     </Swiper>
   );
 };
