@@ -1,22 +1,81 @@
 #item-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
+
 .item-preview {
-    background-color: rgb(126, 192, 230);
-    width: 300px;
-    margin: 20px; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 12px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+  border: 2px solid black;
+  width: 25vw;
+  height: 25vh;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 #item-pic {
   margin-top: 5px;
   height: 100px;
   width: 100px;
+}
+#quant-container{
+  display: flex;
+  display: flex;
+
+}
+#counting{
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 24px;
+  font-weight: 600;
+  margin-left: 4px;
+  margin-right: 5px;
+}
+#btn{
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 50%;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height:12px;
+  margin: 0;
+  min-height: 4px;
+  min-width: 0;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 20px;
+  height:20px;
+  will-change: transform;
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  justify-content: space-evenly;
+}
+#btn:disabled {
+  pointer-events: none;
+}
+
+#btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+#btn:active {
+  box-shadow: none;
+  transform: translateY(0);
 }

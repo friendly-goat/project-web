@@ -1,9 +1,9 @@
-#catalog-container{
+.cart-container{
     /* background-color: #FECDAA; */
     border: 3px solid black;
     max-width: 100%;
-    height: fit-content;
-    /* height: 100vh; */
+    width: 9vw;
+    height: 20vh;
     margin: 10px auto 0;
     position: relative;
     overflow: hidden;
@@ -11,7 +11,14 @@
     border-radius: 20px;
   }
   @media (max-height: 1000px) and (max-width: 900px){
-    #catalog-container {
+    #cart-container {
       margin: 0px 0px 0;
     }
+  }
+  #big{
+    margin-top: 2vh;
+    display: flex;
+    width: 90vw;
+    height: 22vh;
+    border: 2px solid red;
   }
