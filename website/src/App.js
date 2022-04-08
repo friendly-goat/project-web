@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from "./homePage/Home";
-import Shop from "./shopPage/shop";
-import Error from "./errorPage/Error";
+import Home from "./Pages/homePage/Home";
+import Shop from "./Pages/shopPage/shop";
+import Error from "./Pages/errorPage/Error";
 function App() {
   return (
     <Router>

@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../Components/Header/Header";
-import SwiperSlider from "../Components/Slider/SwiperSlider";
-import Catalog from "../Components/Catalog/Catalog";
+import Header from "../../Components/Header/Header";
+import SwiperSlider from "../../Components/Slider/SwiperSlider";
+// import Catalog from "../Components/Catalog/Catalog";
 import "./Home.css";
 function Home() {
   return (
