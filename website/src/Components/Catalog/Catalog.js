@@ -1,5 +1,6 @@
 import './Catalog.css'
 import Checkout from '../Checkout/Checkout';
+
 import Item from './Items/Item';
 const Catalog = () => {
     return ( 
