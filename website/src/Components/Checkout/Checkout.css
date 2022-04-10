@@ -1,6 +1,6 @@
 .cart-container{
     /* background-color: #FECDAA; */
-    border: 3px solid black;
+    /* border: 3px solid black;
     max-width: 100%;
     width: 9vw;
     height: 20vh;
@@ -8,7 +8,14 @@
     position: relative;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 20px; */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
+    border: 3px solid black;
+    text-align: center;
+    padding: 40px 0;
+    width: 7vw;
+
   }
   @media (max-height: 1000px) and (max-width: 900px){
     #cart-container {
@@ -20,5 +27,11 @@
     display: flex;
     width: 90vw;
     height: 22vh;
-    border: 2px solid red;
+    /* border: 2px solid red; */
   }
+#total-container{
+  margin-right: 10px;
+  text-align: center;
+  padding: 60px 0;
+
+}
