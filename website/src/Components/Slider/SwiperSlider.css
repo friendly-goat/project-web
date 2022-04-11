@@ -40,3 +40,12 @@
   position: absolute;
   z-index: 2;
 }
+#shop-btn{
+  background-color: blue;
+  width: calc(100% + 10px);
+  border-radius: 20px;
+  
+}
+#shop-link{
+  color: black;
+}

@@ -18,6 +18,8 @@ import image1 from '../../images/image1.jpg';
 import image2 from '../../images/image2.jpg';
 import image3 from '../../images/image3.jpg';
 
+import { Link } from 'react-router-dom'
+
 // slider component
 const SwiperSlider = () => {
   return (
@@ -39,7 +41,7 @@ const SwiperSlider = () => {
           <img src={image1} alt="image1"></img>
         </div>
         <div className='overSlide noSwiping'>
-          <p>Hello there</p>
+          <div id='shop-btn'><Link to="/shop" id='shop-link'>Shop All</Link></div>
         </div>
       </SwiperSlide>
 
@@ -48,7 +50,7 @@ const SwiperSlider = () => {
           <img src={image2} alt="image2"></img>
         </div>
         <div className='overSlide noSwiping'>
-          <p></p>
+          <div id='shop-btn'><Link to="/shop" id='shop-link'>Shop All</Link></div>
         </div>
       </SwiperSlide>
 
@@ -57,7 +59,7 @@ const SwiperSlider = () => {
           <img src={image3} alt="image3"></img>
         </div>
         <div className='overSlide noSwiping'>
-          <p></p>
+          <div id='shop-btn'><Link to="/shop" id='shop-link'>Shop All</Link></div>
         </div>
       </SwiperSlide>
     </Swiper>

@@ -5,9 +5,9 @@ const Header = () => {
         <div id="main-container">
             <Link to="/" id='welcome'>Home</Link>
             <Link to="/shop" id='welcome'>Shop All</Link>
-            <p id="welcome">About</p>
+            <Link to="/about" id='welcome'>About</Link>
             <p id="welcome">Contact</p>
-            <p id="welcome">Log In</p>
+            <Link to="/login" id='welcome'>Log In</Link>
         </div>
      );
 }

@@ -11,7 +11,7 @@ const Checkout = ({ items, handleCart }) => {
   };
   return (
     <div id="big">
-      <div id="total-container">total: {total(cartItems)}</div>
+      <div id="total-container">total: ${total(cartItems)}.00</div>
       {cartItems.map((item) => (
         <div className="cart-container" key={item.id}>
           <div id="item-head">{item.name}</div>
