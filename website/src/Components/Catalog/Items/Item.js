@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import React from "react"
 import axios from "axios";
 import "./Item.css";
@@ -8,62 +9,55 @@ const Item = () => {
   const [items, setItems] = useState([]);
   React.useEffect(() => {
     axios.get('http://localhost:5000/api/items').then((res) => {
-      setItems(res.data)
+      // console.log(res.data)
+      // //setItems(res.data[0])
+      for(let i = 0; i < res.data[0].length; i++){
+        res.data[0][i].quantity = 0
+      }
+      setItems(res.data[0])
+      // console.log(res.data[0])
     }).catch((err) => console.log(err))
   }, [])
-  // let [count, setCount] = useState(0);
-  // can add functions here
-  const handleInc = (id) => {
+  
+  const handleAdd = (id) =>{
     const newItems = items.filter((item) => {
-      if (item.id === id) {
-        item.qnt++
+      if(item.item_id === id){
+        item.quantity++
       }
-      return item;
-    });
-    setItems(newItems)
-  };
-  const handleDec = (id) => {
-    const newItems = items.filter((item) => {
-      if ((item.id === id) && (item.qnt > 0)) {
-        item.qnt--
-      }
-      return item;
-    });
-    setItems(newItems);
-  };
-  const handleCart = (cartItems) => {
-    cartItems = items.filter((item) => {
-      if(item.qnt !== 0){
-        cartItems.push(item)
-      }
-      return cartItems
+      return item
     })
-    return cartItems
+    setItems(newItems)
   }
-
-  // <Checkout items={items} handleCart={handleCart}/>
-  // COUNTER NOT WORKING AT ALL, STATES ARE ALL MESSED UP, but hey, at least they look nice
-  return (
+  const handleDlt = (id) =>{
+    const newItems = items.filter((item) => {
+      if((item.item_id === id) && (item.quantity !== 0)){
+        item.quantity--
+      }
+      return item
+    })
+    setItems(newItems)
+  }
+  return(
     <div id="item-container">
-      <Checkout items={items} handleCart={handleCart}/>
-      {items.map((item) => (
-        <div className="item-preview" key={item.id}>
-          <img id="item-pic" src={item.img} alt="..." />
-          <h2>{item.name}</h2>
-          <p>Price: ${item.price}.00</p>
-          <div id="quant-container">
-            <button id="btn" onClick={() => handleDec(item.id)}>
-              -
-            </button>
-            <div id="counting">{item.qnt}</div>
-            <button id="btn" onClick={() => handleInc(item.id)}>
-              +
-            </button>
-          </div>
+    <Checkout items={items} />
+    {items.map((item) => (
+      <div className="item-preview" key={item.item_id}>
+        <img id="item-pic" src={item.item_img} alt="..." />
+        <h2>{item.item_name}</h2>
+        <p>Price: ${item.item_price}.00</p>
+        <div id="quant-container">
+          <button id="btn" onClick={() => handleDlt(item.item_id)}>
+            -
+          </button>
+          <div id="counting">{item.quantity}</div>
+          <button id="btn" onClick={() => handleAdd(item.item_id)}>
+            +
+          </button>
         </div>
-      ))}
-    </div>
-  );
+      </div>
+    ))}
+  </div>
+  )
 };
 
 export default Item;

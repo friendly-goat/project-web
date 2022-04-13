@@ -5,6 +5,7 @@ import Shop from "./Pages/shopPage/shop";
 import Error from "./Pages/errorPage/Error";
 import About from "./Pages/aboutPage/About";
 import Login from "./Pages/loginPage/Login";
+import CheckoutPage from "./Pages/checkoutPage/Checkout";
 function App() {
   return (
     <Router>
@@ -13,6 +14,7 @@ function App() {
         <Route path="/shop" element={<Shop />}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="/checkout" element={<CheckoutPage/>}/>
         <Route path="*" element={<Error />}/>
       </Routes>
     </Router>

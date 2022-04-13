@@ -1,26 +1,46 @@
 import "./Checkout.css";
-const Checkout = ({ items, handleCart }) => {
-  let cartItems = [];
-  handleCart(cartItems);
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
+const Checkout = ({ items }) => {
   let counter = 0;
-  let total = (cartItems) => {
-    for (let i = 0; i < cartItems.length; i++) {
-      counter = counter + cartItems[i].price * cartItems[i].qnt;
+  let total = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+      counter = counter + arr[i].item_price * arr[i].quantity;
     }
     return counter;
   };
+  let handleCart = () => {
+    let cartArr = []
+    for(let i = 0; i < items.length; i++){
+      if(items[i].quantity !== 0){
+        cartArr.push(items[i])
+      }
+    }
+    return cartArr
+  }
   return (
     <div id="big">
-      <div id="total-container">total: ${total(cartItems)}.00</div>
-      {cartItems.map((item) => (
-        <div className="cart-container" key={item.id}>
-          <div id="item-head">{item.name}</div>
+      <div id="total-container">total: ${total(items)}.00</div>
+      {handleCart().map((item) => (
+        <div className="cart-container" key={item.item_id}>
+          <div id="item-head">{item.item_name}</div>
           <div id="price" style={{ color: "red" }}>
-            Price: {item.price}
+            Price: {item.item_price}
           </div>
-          Quantity: {item.qnt}
+          Quantity: {item.quantity}
         </div>
       ))}
+      <Link
+        to="/checkout"
+        id="checkoutBtn"
+        onClick={() => console.log(handleCart().forEach((item) => {
+          axios.post() //work in progress
+        }))}
+      >
+        Checkout
+      </Link>
     </div>
   );
 };
