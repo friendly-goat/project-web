@@ -20,5 +20,15 @@ module.exports = {
             res.status(200).send(itemsDB)
         })
         .catch(err => console.log('error getting items DB', err))
+    },
+    getAllOrders: (req,res) => {
+        sequelize.query(`
+        select * from orders
+        `)
+        .then(itemsDB => {
+            console.log('items are coming from orders DB')
+            res.status(200).send(itemsDB)
+        })
+        .catch(err => console.log('error getting items from orders DB', err))
     }
 }

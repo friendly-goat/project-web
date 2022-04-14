@@ -35,9 +35,11 @@ const Checkout = ({ items }) => {
       <Link
         to="/checkout"
         id="checkoutBtn"
-        onClick={() => console.log(handleCart().forEach((item) => {
-          axios.post() //work in progress
-        }))}
+        onClick={() => {
+          axios.post('http://localhost:5000/api/cart', handleCart())
+          .then((res) => console.log(res.data))
+          .catch((err) => console.log(err))
+        }}
       >
         Checkout
       </Link>
