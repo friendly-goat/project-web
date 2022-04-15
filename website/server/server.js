@@ -7,6 +7,11 @@ app.use(express.json())
 const {SERVER_PORT} = process.env
 
 const {
+    seedUsers,
+    newUser,
+    login
+} = require("./controller/userController")
+const {
     getItems,
     getAllOrders
 } = require("./controller/itemController")
@@ -20,9 +25,12 @@ app.get("/api", (req,res) => res.send('Hello World!'))
 
 app.get("/api/items", getItems)
 app.get("/api/orders", getAllOrders)
+app.post("/api/login", login)
 
 app.post("/api/seed", seed)
 app.post("/api/resetorders", resetOrders)
+app.post("/api/seedusers", seedUsers)
+app.post("/api/newuser", newUser)
 
 app.post("/api/cart", checkoutClick)
 

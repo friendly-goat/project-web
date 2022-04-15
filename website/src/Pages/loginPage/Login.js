@@ -1,15 +1,14 @@
 import React from 'react'
 import Header from '../../Components/Header/Header'
-function Login() {
+import Login from '../../Components/Login/Login'
+function LoginPage() {
   return (
       
     <div>
         <Header />
-        <div>
-            LOG IN PAGE
-        </div>
+        <Login />
     </div>
   )
 }
 
-export default Login
+export default LoginPage

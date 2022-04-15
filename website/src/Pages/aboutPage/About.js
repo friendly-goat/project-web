@@ -6,7 +6,7 @@ function About() {
     <div>
         <Header />
         <div>
-            ABOUT PAGE
+            This website was created for All Saints Of Russia Church for the Easter celebration bake sale.
         </div>
     </div>
   )
