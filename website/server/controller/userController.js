@@ -1,6 +1,5 @@
 require("dotenv").config();
 var bcrypt = require('bcryptjs');
-const { QueryInterface } = require("sequelize");
 const { CONNECTION_STRING } = process.env;
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(CONNECTION_STRING, {
@@ -74,5 +73,13 @@ module.exports = {
     //     res.sendStatus(200);
     //   })
     //   .catch((err) => console.log("error seeding user DB", err));
-  }
+  },
+  setCookie: (req,res) => {
+    res.status(202).cookie('Name', 'Alex Baranoff', {
+        sameSite: 'strict',
+        path: '/',
+        expires: new Date(new Date().getTime() + 20 * 1000),
+        httpOnly: true,
+    }).send("Cookie being made")
+}
 };
