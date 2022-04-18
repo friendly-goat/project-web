@@ -1,17 +1,32 @@
 const express = require('express')
 const cors = require("cors")
-//const session = require('express-session')
+const session = require('express-session')
+const cookieParser = require('cookie-parser');
+
 require('dotenv').config()
 const app = express()
 app.use(cors()) //origin: 'http://localhost:3000' //what i used when I tried to do cookie-parser
 app.use(express.json())
-//app.use(session())
-
+app.use(cookieParser())
+const sessionConfig = {
+        name: 'sid',
+        resave: false,
+        saveUninitialized: true,
+        secret: '123',
+        cookie: {
+                maxAge: 1000 * 60 * 60 * 2,
+                sameSite: true,
+                secure: false,
+                httpOnly: true,
+            }
+        }
+        
+app.use(session(sessionConfig))
+        
 const {SERVER_PORT} = process.env
-
-const {
-    contact
-} = require("./controller/emailController")
+        const {
+            contact
+        } = require("./controller/emailController")
 const {
     seedUsers,
     newUser,

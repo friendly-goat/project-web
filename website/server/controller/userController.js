@@ -71,6 +71,7 @@ module.exports = {
                 if(dbres1[0][i].user_email === email && bcrypt.compareSync(password, dbres2[0][i].user_password)){
                     //console.log(dbres2[0][i])
                     pass = true
+                    console.log(req.session.cookie)
                     res.status(200).send(pass)
                     return
                 }
