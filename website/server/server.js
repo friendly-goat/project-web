@@ -1,18 +1,21 @@
 const express = require('express')
-const cookieParser = require('cookie-parser')
 const cors = require("cors")
+//const session = require('express-session')
 require('dotenv').config()
 const app = express()
-app.use(cors({origin: 'http://localhost:3000', credentials: true}))
+app.use(cors()) //origin: 'http://localhost:3000' //what i used when I tried to do cookie-parser
 app.use(express.json())
-app.use(cookieParser())
+//app.use(session())
+
 const {SERVER_PORT} = process.env
 
 const {
+    contact
+} = require("./controller/emailController")
+const {
     seedUsers,
     newUser,
-    login,
-    setCookie
+    login
 } = require("./controller/userController")
 const {
     getItems,
@@ -24,7 +27,10 @@ const {
     checkoutClick
 } = require("./controller/cartController")
 
-app.get("/", setCookie)
+// app.get("/api", (req,res) => res.send('Hello World!'))
+
+app.post("/api/contact", contact)
+
 app.get("/api/items", getItems)
 app.get("/api/orders", getAllOrders)
 app.post("/api/login", login)

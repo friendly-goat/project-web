@@ -34,5 +34,11 @@
   margin-right: 10px;
   text-align: center;
   padding: 60px 0;
-
+}
+#checkoutBtn{
+  height: 40px;
+  margin-left: auto;
+  border-radius: 10px;
+  margin-top: 6vh;
+  width: 80px;
 }

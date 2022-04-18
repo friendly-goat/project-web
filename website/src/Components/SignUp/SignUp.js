@@ -1,12 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link , withRouter , Navigate, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import React from 'react';
+import Login from '../Login/Login';
+import './SignUp.css'
 const SignUp = () => {
+    const navigate = useNavigate()
     const [inputFields, setInputFields] = useState([
         { 
             firstname: '',
             lastname: '',
-            username: '',
             phoneNumber: '',
             email: '',
             password: '',
@@ -18,42 +21,49 @@ const SignUp = () => {
         data[index][event.target.name] = event.target.value;
         setInputFields(data);
     }
+
     const submit = (e) => {
         e.preventDefault();
         let match = true
         let notEmpty = true
+        let passCheck = true
+        
         if(inputFields[0].password !== inputFields[0].cpassword){
             alert('passwords do not match')
             match = false
         }
-        if((inputFields[0].firstname && inputFields[0].lastname && inputFields[0].username && inputFields[0].phoneNumber && inputFields[0].email && inputFields[0].password && inputFields[0].cpassword) === ""){
+        if((inputFields[0].firstname && inputFields[0].lastname && inputFields[0].phoneNumber && inputFields[0].email && inputFields[0].password && inputFields[0].cpassword) === ""){
             alert('required fields')
             notEmpty = false
         }
-        if(match && notEmpty){
+        if(inputFields[0].password.length < 6){
+            alert('password must be 6 characters')
+            passCheck = false
+        }
+        if(match && notEmpty && passCheck){
             axios
             .post('http://localhost:5000/api/newuser', inputFields)
-            .then((res) => console.log(res.data))
-            .catch((err) => console.log(err))
+            .then((res) => {
+                navigate('/login')
+                console.log(res.data)
+            })
+            .catch((err) => alert(err.response.data))
         }
-        
     }
     return ( 
         <div id="signup-container">
+            <div id="form-container">
             <form>
                 {inputFields.map((input, index) => {
-                return(
-                    <div key={index}>
+                    return(
+                        <div key={index}>
+                        
                         <label htmlFor="fname"><b>First name  </b></label>
                         <input type="text" placeholder="Enter Firstname" name="firstname" value={input.firstname} onChange={event => handleFormChange(index, event)} required></input>
                         <br/>
                         <br/>
                         <label htmlFor="lname"><b>Last name  </b></label>
                         <input type="text" placeholder="Enter Lastname" name="lastname" value={input.lastname} onChange={event => handleFormChange(index, event)} required></input>
-                        <br/>
-                        <br/>
-                        <label htmlFor="uname"><b>Username  </b></label>
-                        <input type="text" placeholder="Enter Username" name="username" value={input.username} onChange={event => handleFormChange(index, event)} required></input>
                         <br/>
                         <br/>
                         <label htmlFor="phone"><b>Phone number  </b></label>
@@ -79,6 +89,7 @@ const SignUp = () => {
             </form>
             <br/>
             <Link to="/login">Log in</Link>
+            </div>
         </div>
      );
 }

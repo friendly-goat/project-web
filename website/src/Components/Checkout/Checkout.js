@@ -1,9 +1,10 @@
 import "./Checkout.css";
 // import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import axios from "axios";
 
 const Checkout = ({ items }) => {
+  const navigate = useNavigate()
   let counter = 0;
   let total = (arr) => {
     for (let i = 0; i < arr.length; i++) {
@@ -32,17 +33,20 @@ const Checkout = ({ items }) => {
           Quantity: {item.quantity}
         </div>
       ))}
-      <Link
-        to="/checkout"
+      <button
         id="checkoutBtn"
-        onClick={() => {
+        onClick={() => { if(handleCart().length > 0){
           axios.post('http://localhost:5000/api/cart', handleCart())
-          .then((res) => console.log(res.data))
+          .then((res) => {
+            console.log(res.data)
+            navigate('/checkout')
+          })
           .catch((err) => console.log(err))
+          }else{alert('need items')}
         }}
       >
         Checkout
-      </Link>
+      </button>
     </div>
   );
 };

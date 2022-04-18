@@ -1,11 +1,12 @@
-import { Link, Route } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-axios.defaults.withCredentials = true;
+import './Login.css'
 const Login = () => {
+  const navigate = useNavigate()
   const [inputFields, setInputFields] = useState([
     {
-      username: "",
+      email: "",
       password: "",
     },
   ]);
@@ -17,7 +18,7 @@ const Login = () => {
   const login = (e) => {
     e.preventDefault();
     let notEmpty = true;
-    if ((inputFields[0].username && inputFields[0].password) === "") {
+    if ((inputFields[0].email && inputFields[0].password) === "") {
       alert("required fields");
       notEmpty = false;
     }
@@ -26,31 +27,28 @@ const Login = () => {
       axios
         .post("http://localhost:5000/api/login", inputFields)
         .then((res) => {
-          alert(res.data);
-          axios
-            .get("http://localhost:5000", { withCredentials: true })
-            .then((Cres) => {
-              console.log("cookie made");
-            });
+          navigate('/shop')
+          //alert(res.data);
         })
-        .catch(() => alert("Password and username do not match"));
+        .catch(() => alert("Password and email do not match"));
     }
   };
 
   return (
     <div id="login-container">
+      <div id="form-container">
       <form>
         {inputFields.map((input, index) => {
           return (
             <div key={index}>
-              <label htmlFor="username">
-                <b>Username </b>
+              <label htmlFor="email">
+                <b>email </b>
               </label>
               <input
                 type="text"
-                placeholder="Enter Username"
-                name="username"
-                value={input.username}
+                placeholder="Enter email"
+                name="email"
+                value={input.email}
                 onChange={(event) => handleFormChange(index, event)}
                 required
               ></input>
@@ -77,6 +75,7 @@ const Login = () => {
       <br />
       <br />
       <Link to="/signup">Sign up</Link>
+      </div>
     </div>
   );
 };
