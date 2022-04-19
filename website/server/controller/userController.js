@@ -1,5 +1,6 @@
 require("dotenv").config();
 var bcrypt = require('bcryptjs');
+const session = require("express-session");
 const { CONNECTION_STRING } = process.env;
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(CONNECTION_STRING, {
@@ -71,13 +72,31 @@ module.exports = {
                 if(dbres1[0][i].user_email === email && bcrypt.compareSync(password, dbres2[0][i].user_password)){
                     //console.log(dbres2[0][i])
                     pass = true
-                    console.log(req.session.cookie)
-                    res.status(200).send(pass)
-                    return
+                    const sessionUser = {
+                      email: email,
+                    }
+                    // req.session.cookie = sessionUser
+                    
+                    // req.session.email = email
+                    //
+                    req.session.store = sessionUser
+                    //
+                    // console.log(req.session)
+                    return res.status(200).send(req.session.store)
+                    
                 }
             }
             res.status(404).send(pass)
         }).catch(err => console.log('select user_password from users fail', err))
     }).catch(err => console.log('select user_email from users fail', err))
+  },
+  getSes: (req,res) => {
+    // console.log(req.session)
+    // req.session.email = req.param('name')
+    // const response = {
+    //   "email": req.session.cookie.email
+    // }
+    req.session.store = req.body
+    return res.send(req.session)
   }
 };

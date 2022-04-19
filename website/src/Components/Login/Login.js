@@ -25,9 +25,16 @@ const Login = () => {
     if (notEmpty) {
       //console.log(inputFields);
       axios
-        .post("http://localhost:5000/api/login", inputFields)
+        .post("http://localhost:5000/api/login", inputFields, {withCredentials: true})
         .then((res) => {
-          navigate('/shop')
+          console.log(res.data.email)
+          document.session = res.data
+          console.log(document.session)
+          if(res.data.email === 'bakesalechurch@gmail.com'){
+            navigate('/admin')
+          }else{
+            navigate('/shop')
+          }
           //alert(res.data);
         })
         .catch(() => alert("Password and email do not match"));

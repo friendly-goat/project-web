@@ -8,20 +8,24 @@ import Checkout from "../../Checkout/Checkout";
 const Item = () => {
   const [items, setItems] = useState([]);
   React.useEffect(() => {
+    // console.log(document.session)
+    // axios.post('http://localhost:5000/api/getSession', document.session).then((res) => {console.log(res.data)}).catch((err) => console.log(err))
     axios.get('http://localhost:5000/api/items').then((res) => {
       // console.log(res.data)
       // //setItems(res.data[0])
       for(let i = 0; i < res.data[0].length; i++){
         res.data[0][i].quantity = 0
+        res.data[0][i].email = document.session.email
       }
       setItems(res.data[0])
+      // console.log(items)
       // console.log(res.data[0])
     }).catch((err) => console.log(err))
   }, [])
   
   const handleAdd = (id) =>{
     const newItems = items.filter((item) => {
-      if(item.item_id === id){
+      if((item.item_id === id) && (item.quantity !== 15)){
         item.quantity++
       }
       return item

@@ -9,6 +9,14 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
         }
     }
 })
+const nodemailer = require("nodemailer");
+const contactEmail = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: "bakesalechurch@gmail.com",
+      pass: "10323ierdna!",
+    },
+  });
 
 module.exports = {
     seed: (req,res) => {
@@ -35,7 +43,7 @@ module.exports = {
                 item_name varchar(255),
                 item_price integer,
                 item_quantity integer,
-                order_id integer references orders(order_id)
+                order_id integer references orders(order_id) on delete cascade
             );
             insert into items(item_name,item_description,item_price,item_img)
             values ('Big Kulich','Big Kulich is very tasty',20,'...'),
@@ -65,7 +73,7 @@ module.exports = {
                 item_name varchar(255),
                 item_price integer,
                 item_quantity integer,
-                order_id integer references orders(order_id)
+                order_id integer references orders(order_id) on delete cascade
             );
         `).then(() => {
             console.log('Orders re-set')
@@ -74,8 +82,8 @@ module.exports = {
     },
     //work in progress from here down, post for checkout on checkout.js
     checkoutClick: (req,res) => {
-        console.log(req.body)
         // const { orderArr } = req.body // i am bad at de-struc
+        let user = req.body[0].email
         let total = 0
         for(let i = 0; i < req.body.length; i++){
             total = total + (req.body[i].item_price * req.body[i].quantity)
@@ -83,10 +91,24 @@ module.exports = {
         console.log(total)
         sequelize.query(`
             insert into orders(total_cost,order_by_name,order_by_phonenumber)
-            values (${total},'Alex',3033466618);
+            values (${total},'${user}',3033466618);
         `).then(() => {
-            console.log('Order added to database')
-            res.sendStatus(200)
+            const mail = {
+                from: user,
+                to: "bakesalechurch@gmail.com",
+                subject: "Message from contact page",
+                html: `<p>Email: ${user}</p>
+                       <p>${user} placed an order of $${total}</p>`,
+              };
+              contactEmail.sendMail(mail, (error) => {
+                if (error) {
+                    res.status(404).send("ERROR");
+                } else {
+                    res.status(200).send("Message Sent");
+                }
+              });
+            //console.log('Order added to database')
+            //res.sendStatus(200)
         }).catch(err => console.log('error adding to DB', err))
         for(let i = 0; i < req.body.length; i++){
             sequelize.query(`

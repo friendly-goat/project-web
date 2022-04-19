@@ -1,6 +1,6 @@
 import "./Checkout.css";
 // import { useState, useEffect } from "react";
-import { Link , useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Checkout = ({ items }) => {
@@ -36,6 +36,7 @@ const Checkout = ({ items }) => {
       <button
         id="checkoutBtn"
         onClick={() => { if(handleCart().length > 0){
+          // axios.post('http://localhost:5000/api/getSession').then((res) => {console.log(res.data)}).catch((err) => console.log(err))
           axios.post('http://localhost:5000/api/cart', handleCart())
           .then((res) => {
             console.log(res.data)

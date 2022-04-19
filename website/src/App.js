@@ -8,6 +8,7 @@ import Login from "./Pages/loginPage/Login";
 import CheckoutPage from "./Pages/checkoutPage/Checkout";
 import ContactPage from "./Pages/ContactPage/ContactPage";
 import SignUpPage from "./Pages/signUpPage/SignUpPage";
+import AdminPage from "./Pages/adminPage/adminPage";
 function App() {
   return (
     <Router>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<SignUpPage/>}/>
         <Route path="/checkout" element={<CheckoutPage/>}/>
+        <Route path="/admin" element={<AdminPage/>}/>
         <Route path="*" element={<Error />}/>
       </Routes>
     </Router>
