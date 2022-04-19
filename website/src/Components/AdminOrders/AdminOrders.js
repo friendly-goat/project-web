@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import'./AdminOrders.css'
 const AdminOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
     React.useEffect(() => {
@@ -28,11 +29,12 @@ const AdminOrders = () => {
   
     return (
       <div>
+        <div id = 'order-container'>
         ALL ORDERS
+        </div>
         <div id="o">
-        <br />
         {allOrders.map((item) => (
-          <div key={item.order_id}>
+          <div key={item.order_id} id = 'order-container'>
               id: {item.order_id}<br/>
               ordered by: {item.order_by_name}<br/>
               total cost: $ {item.total_cost}
@@ -40,14 +42,16 @@ const AdminOrders = () => {
               </div>
         ))}
         <br/><br/>
-        </div>
-        ALL ITEMS
-        <div id="i">
+        </div >
         <br />
+        <div id = 'order-container'>
+        ALL ITEMS
+        </div>
+        <div id="i">
         {allItems.map((item) => (
-          <div key={item.order_id}>
+          <div key={item.order_id} id = 'order-container'>
+              id: {item.order_id}<br/>
               price: ${item.item_price * item.item_quantity}<br/>
-              ordered by: {item.order_by_name}<br/>
               type: {item.item_name}<br/>
               quantity: {item.item_quantity}
               <br/><br/>

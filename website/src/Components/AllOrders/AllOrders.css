@@ -1,0 +1,16 @@
+#order-container{
+    border: 2px solid black;
+    text-align: center;
+    margin-top: 5px;
+    width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    background-color: #1F5673;
+}
+#dlt-btn{
+    border-radius: 20px;
+    background-color: #C0E8F9;
+    font-size: small;
+}

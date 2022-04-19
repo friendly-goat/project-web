@@ -26,10 +26,10 @@ const Checkout = ({ items }) => {
       <div id="total-container">total: ${total(items)}.00</div>
       {handleCart().map((item) => (
         <div className="cart-container" key={item.item_id}>
-          <div id="item-head">{item.item_name}</div>
-          <div id="price" style={{ color: "red" }}>
+          <div id="item-head">{item.item_name}</div><br/>
+          <div id="price">
             Price: {item.item_price}
-          </div>
+          </div><br/>
           Quantity: {item.quantity}
         </div>
       ))}

@@ -47,7 +47,7 @@ module.exports = {
             );
             insert into items(item_name,item_description,item_price,item_img)
             values ('Big Kulich','Big Kulich is very tasty',20,'...'),
-            ('Small Kulich','Also very tasty but a little smaller',12,'../../../images/sKulich.jpg'),
+            ('Small Kulich','Also very tasty but a little smaller',12,'../images/sKulich.jpg'),
             ('Pasha','The best of the best',28,'...'),
             ('Painted Egg','Very simple',1,'...'),
             ('Large Basket','Includes ...',80,'...'),
@@ -59,7 +59,7 @@ module.exports = {
     },
     resetItems: (req,res) => {
         sequelize.query(`
-            drop table if exists items;
+            drop table items cascade;
             create table items(
                 item_id serial primary key,
                 item_name varchar(255),
@@ -69,7 +69,7 @@ module.exports = {
             );
             insert into items(item_name,item_description,item_price,item_img)
             values ('Big Kulich','Big Kulich is very tasty',20,'...'),
-            ('Small Kulich','Also very tasty but a little smaller',12,'../../../images/sKulich.webp'),
+            ('Small Kulich','Also very tasty but a little smaller',12,'../images/sKulich.jpg'),
             ('Pasha','The best of the best',28,'...'),
             ('Painted Egg','Very simple',1,'...'),
             ('Large Basket','Includes ...',80,'...'),

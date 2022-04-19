@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './AllOrders.css'
 const AllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
   React.useEffect(() => {
@@ -22,11 +23,13 @@ const AllOrders = () => {
   return (
     <div>
       {allOrders.map((item) => (
-        <div key={item.order_id}>
+        <div key={item.order_id} id = 'order-container'>
+          <br/>
             id: {item.order_id}<br/>
             ordered by: {item.order_by_name}<br/>
             total cost: $ {item.total_cost}
-            <button onClick={() => {
+            <br/>
+            <button id="dlt-btn"onClick={() => {
               axios
               .delete(`http://localhost:5000/api/order/${item.order_id}`)
               .then(() => {handlDelete(item.order_id)})
