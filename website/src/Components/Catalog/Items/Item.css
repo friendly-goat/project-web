@@ -16,8 +16,8 @@
   border-radius: 12px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  background-color: #eae8ff;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
 }
 #item-pic {
   margin-top: 5px;

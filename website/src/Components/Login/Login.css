@@ -2,8 +2,49 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-right: -50%;
+    width: 30%;
     transform: translate(-50%, -50%);
-    padding: 10px;
-    border: 2px solid black;
+    background-color: transparent;
 }
+
+fieldset {
+    padding: 20px;
+    margin: auto;
+    width: 100%;
+}
+
+input {
+    padding:5px;
+    border-width: 1px;
+    border-radius:10px;
+    box-shadow: 2px;
+    float: right;
+}
+
+.submit-btn{
+    float: right;
+    width: 75px;
+    height: 30px;
+    margin-top: 12px;
+    background-color: transparent;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.submit-btn:hover{
+    /* font-family: 'Roboto', serif; */
+    float: right;
+    width: 75px;
+    height: 30px;
+    margin-top: 12px;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    text-align: center;
+    background-color: black;
+    color: white;
+    object-fit: contain;
+    text-decoration: none;
+    cursor: pointer;
+  }

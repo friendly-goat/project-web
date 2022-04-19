@@ -4,6 +4,7 @@ import React from "react"
 import axios from "axios";
 import "./Item.css";
 import Checkout from "../../Checkout/Checkout";
+import sKulich from "../../../images/sKulich.webp"
 // good production way to  get pics that are on public folder: process.env.PUBLIC_URL + `/Imgs/img${item.id}.jpg`
 const Item = () => {
   const [items, setItems] = useState([]);
@@ -46,6 +47,7 @@ const Item = () => {
     <Checkout items={items} />
     {items.map((item) => (
       <div className="item-preview" key={item.item_id}>
+        {console.log(item.item_img)}
         <img id="item-pic" src={item.item_img} alt="..." />
         <h2>{item.item_name}</h2>
         <p>Price: ${item.item_price}.00</p>

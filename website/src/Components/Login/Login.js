@@ -48,6 +48,8 @@ const Login = () => {
         {inputFields.map((input, index) => {
           return (
             <div key={index}>
+              <fieldset>
+              <legend>Login</legend>
               <label htmlFor="email">
                 <b>email </b>
               </label>
@@ -74,12 +76,12 @@ const Login = () => {
               ></input>
               <br />
               <br />
+              </fieldset>
             </div>
           );
         })}
       </form>
-      <button onClick={login}>Submit</button>
-      <br />
+      <button className="submit-btn" onClick={login}>Submit</button>
       <br />
       <Link to="/signup">Sign up</Link>
       </div>

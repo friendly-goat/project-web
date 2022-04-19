@@ -53,11 +53,12 @@ const SignUp = () => {
     return ( 
         <div id="signup-container">
             <div id="form-container">
-            <form>
+            <form label="login">
                 {inputFields.map((input, index) => {
                     return(
                         <div key={index}>
-                        
+                        <fieldset>
+                            <legend>Sign up</legend>
                         <label htmlFor="fname"><b>First name  </b></label>
                         <input type="text" placeholder="Enter Firstname" name="firstname" value={input.firstname} onChange={event => handleFormChange(index, event)} required></input>
                         <br/>
@@ -82,10 +83,11 @@ const SignUp = () => {
                         <input type="password" placeholder="Enter Password" name="cpassword" value={input.cpassword} onChange={event => handleFormChange(index, event)} required></input>
                         <br/>
                         <br/>
+                        </fieldset>
                     </div>
                 )
                 })}
-                <button onClick={submit}>Submit</button>
+                <button className="submit-btn" onClick={submit}>Submit</button>
             </form>
             <br/>
             <Link to="/login">Log in</Link>

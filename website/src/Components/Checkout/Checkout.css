@@ -1,46 +1,63 @@
 .cart-container{
-    /* background-color: #FECDAA; */
-    /* border: 3px solid black;
-    max-width: 100%;
-    width: 9vw;
-    height: 20vh;
-    margin: 10px auto 0;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 20px; */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    border: 3px solid black;
-    text-align: center;
-    padding: 40px 0;
-    width: 7vw;
-    margin-right: 10px;
-    background-color: #2D3142;
-    color: white;
-  }
-  @media (max-height: 1000px) and (max-width: 900px){
-    #cart-container {
-      margin: 0px 0px 0;
-    }
-  }
-  #big{
-    
-    margin-top: 2vh;
-    display: flex;
-    width: 90vw;
-    height: 22vh;
-    /* border: 2px solid red; */
-  }
-#total-container{
-  margin-right: 10px;
+  /* background-color: #FECDAA; */
+  /* border: 3px solid black;
+  max-width: 100%;
+  width: 9vw;
+  height: 20vh;
+  margin: 10px auto 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 20px; */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  border: 3px solid black;
   text-align: center;
-  padding: 60px 0;
+  padding: 40px 0;
+  width: 7vw;
+  margin-right: 10px;
+  background-color: #2D3142;
+  color: white;
+}
+@media (max-height: 1000px) and (max-width: 900px){
+  #cart-container {
+    margin: 0px 0px 0;
+  }
+}
+#big{
+  
+  margin-top: 2vh;
+  display: flex;
+  width: 90vw;
+  height: 22vh;
+  /* border: 2px solid red; */
+}
+#total-container{
+margin-right: 10px;
+text-align: center;
+padding: 60px 0;
 }
 #checkoutBtn{
-  height: 40px;
-  margin-left: auto;
-  border-radius: 10px;
-  margin-top: 6vh;
-  width: 80px;
+height: 40px;
+margin-left: auto;
+border-radius: 10px;
+margin-top: 6vh;
+width: 80px;
+background-color: transparent;
+border-width: 1px;
+border-style: solid;
+}
+
+#checkoutBtn:hover{
+float: right;
+transition-property: all;
+transition-duration: 0.5s;
+transition-timing-function: ease;
+transition-delay: 0s;
+text-align: center;
+background-color: black;
+color: white;
+object-fit: contain;
+text-decoration: none;
+cursor: pointer;
 }

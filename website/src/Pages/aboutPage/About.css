@@ -1,0 +1,26 @@
+#inside_church_id{
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: 400px;
+    margin-top: 10px;
+}
+
+#text_div{
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    margin-top: 10px;
+}
+
+#p1{
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+#lank{
+    margin-top: 35px;
+    padding-bottom: 35px;
+    text-align: center;
+}

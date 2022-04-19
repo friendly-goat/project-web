@@ -8,14 +8,15 @@ const app = express()
 app.use(cors({origin: 'http://localhost:3000', credentials: true})) 
 app.use(express.json())
 // app.use(cookieParser())
+var date = new Date()
 app.use(session({
         name: 'sid',
-        resave: false,
+        resave: true,
         saveUninitialized: true,
         secret: '123',
         cookie: {
-            maxAge: 1000 * 60 * 60 * 2,
-            sameSite: true,
+            maxAge: date.getTime()+(1000 * 60 * 60 * 2),
+            sameSite: false,
             secure: false,
             httpOnly: false,
             }
@@ -42,7 +43,8 @@ const {
 const {
     seed,
     resetOrders,
-    checkoutClick
+    checkoutClick,
+    resetItems
 } = require("./controller/cartController")
 
 // app.get("/api", (req,res) => res.send('Hello World!'))
@@ -52,6 +54,7 @@ app.post('/api/getSession', getSes)
 
 app.post("/api/contact", contact)
 
+app.post("/api/resetitems", resetItems)
 app.get("/api/adminitems", adminItem)
 app.get('/api/adminorders', adminOrder)
 app.get("/api/items", getItems)

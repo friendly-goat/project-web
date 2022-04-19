@@ -21,9 +21,9 @@ const contactEmail = nodemailer.createTransport({
 module.exports = {
     seed: (req,res) => {
         sequelize.query(`
-            drop table if exists items;
-            drop table if exists orders;
-            drop table if exists order_items;
+            drop table items cascade;
+            drop table orders cascade;
+            drop table order_items cascade;
             create table items(
                 item_id serial primary key,
                 item_name varchar(255),
@@ -39,7 +39,7 @@ module.exports = {
             );
             create table order_items(
                 order_item_id serial primary key,
-                item_id integer references items(item_id),
+                item_id integer references items(item_id) on delete cascade,
                 item_name varchar(255),
                 item_price integer,
                 item_quantity integer,
@@ -47,7 +47,29 @@ module.exports = {
             );
             insert into items(item_name,item_description,item_price,item_img)
             values ('Big Kulich','Big Kulich is very tasty',20,'...'),
-            ('Small Kulich','Also very tasty but a little smaller',12,'...'),
+            ('Small Kulich','Also very tasty but a little smaller',12,'../../../images/sKulich.jpg'),
+            ('Pasha','The best of the best',28,'...'),
+            ('Painted Egg','Very simple',1,'...'),
+            ('Large Basket','Includes ...',80,'...'),
+            ('Small Basket','Includes ...',55,'...');
+        `).then(() => {
+            console.log('DB seeded!')
+            res.sendStatus(200)
+        }).catch(err => console.log('error seeding DB', err))
+    },
+    resetItems: (req,res) => {
+        sequelize.query(`
+            drop table if exists items;
+            create table items(
+                item_id serial primary key,
+                item_name varchar(255),
+                item_description varchar(255),
+                item_price integer,
+                item_img varchar(255)
+            );
+            insert into items(item_name,item_description,item_price,item_img)
+            values ('Big Kulich','Big Kulich is very tasty',20,'...'),
+            ('Small Kulich','Also very tasty but a little smaller',12,'../../../images/sKulich.webp'),
             ('Pasha','The best of the best',28,'...'),
             ('Painted Egg','Very simple',1,'...'),
             ('Large Basket','Includes ...',80,'...'),
