@@ -32,58 +32,59 @@ const ContactEmail = () => {
     }
   };
   return (
-    <div id="contact-container">
-        <div id="form-container">
+    <div id="form-container">
       <form>
         {inputFields.map((input, index) => {
           return (
             <div key={index}>
-              <label htmlFor="name">
-                <b>Name </b>
-              </label>
-              <input
-                type="text"
-                placeholder="Enter Full Name"
-                name="name"
-                value={input.name}
-                onChange={(event) => handleFormChange(index, event)}
-                required
-              ></input>
-              <br />
-              <br />
-              <label htmlFor="email">
-                <b>Email </b>
-              </label>
-              <input
-                type="text"
-                placeholder="Enter Email"
-                name="email"
-                value={input.email}
-                onChange={(event) => handleFormChange(index, event)}
-                required
-              ></input>
-              <br />
-              <br />
-              <label htmlFor="msg">
-                <b>Message </b>
-              </label>
-              <textarea
-                id="msg"
-                type="text"
-                placeholder="Include order number"
-                name="msg"
-                value={input.msg}
-                onChange={(event) => handleFormChange(index, event)}
-                required
-              ></textarea>
-              <br />
-              <br />
+              <fieldset>
+                <legend>Contact Us</legend>
+                <label htmlFor="name">
+                  <b>Name </b>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Full Name"
+                  name="name"
+                  value={input.name}
+                  onChange={(event) => handleFormChange(index, event)}
+                  required
+                ></input>
+                <br />
+                <br />
+                <label htmlFor="email">
+                  <b>Email </b>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Email"
+                  name="email"
+                  value={input.email}
+                  onChange={(event) => handleFormChange(index, event)}
+                  required
+                ></input>
+                <br />
+                <br />
+                <label htmlFor="msg">
+                  <b>Message </b>
+                </label>
+                <textarea
+                  id="msg"
+                  type="text"
+                  placeholder="Include order number"
+                  name="msg"
+                  value={input.msg}
+                  onChange={(event) => handleFormChange(index, event)}
+                  required
+                ></textarea>
+                <br />
+                <br />
+              </fieldset>
             </div>
           );
         })}
       </form>
-      <button onClick={send}>Send</button>
-      </div>
+      <button className="submit-btn" onClick={send}>Send</button>
     </div>
   );
 };

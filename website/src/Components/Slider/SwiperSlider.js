@@ -14,14 +14,18 @@ import 'swiper/css/scrollbar';
 import './SwiperSlider.css';
 
 // images
-import image1 from '../../images/slice_0_0.jpg';
-import image2 from '../../images/slice_0_1.jpg';
-import image3 from '../../images/slice_0_2.jpg';
+import image1 from '../../images/Grad_slice_1.jpeg';
+import image2 from '../../images/Grad_slice_2.jpeg';
+import image3 from '../../images/Grad_slice_3.jpeg';
+import Kulich from '../../images/kulich.png';
+import Pascha from '../../images/pascha.png';
+import Basket from '../../images/basket.png';
 
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 
 // slider component
 const SwiperSlider = () => {
+  const navigate = useNavigate()
   return (
     <Swiper 
       //{...SwiperSliderConfigs} getSwiper={setParallaxSwiper}
@@ -40,8 +44,15 @@ const SwiperSlider = () => {
         <div className="slide-image">
           <img src={image1} alt="image1"></img>
         </div>
-        <div className='overSlide noSwiping'>
-          <div id='shop-btn'><Link to="/shop" id='shop-link'>Shop All</Link></div>
+        <div className='overSlide_left noSwiping'>
+          <h1 class="item_name">Kulich</h1>
+          <p class="item_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <button id='shop-btn' onClick={() =>navigate('/shop')}>
+            Shop All
+          </button>
+        </div>
+        <div class="overSlide_right">
+          <img id="kulich" src={Kulich} alt=""/>
         </div>
       </SwiperSlide>
 
@@ -49,8 +60,15 @@ const SwiperSlider = () => {
         <div className="slide-image">
           <img src={image2} alt="image2"></img>
         </div>
-        <div className='overSlide noSwiping'>
-          <div id='shop-btn'><Link to="/shop" id='shop-link'>Shop All</Link></div>
+        <div className='overSlide_left noSwiping'>
+          <h1 class="item_name">Pascha</h1>
+          <p class="item_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <button id='shop-btn' onClick={() =>navigate('/shop')}>
+            Shop All
+          </button>
+        </div>
+        <div class="overSlide_right">
+          <img id="kulich" src={Pascha} alt=""/>
         </div>
       </SwiperSlide>
 
@@ -58,8 +76,15 @@ const SwiperSlider = () => {
         <div className="slide-image">
           <img src={image3} alt="image3"></img>
         </div>
-        <div className='overSlide noSwiping'>
-          <div id='shop-btn'><Link to="/shop" id='shop-link'>Shop All</Link></div>
+        <div className='overSlide_left noSwiping'>
+          <h1 class="item_name">Basket</h1>
+          <p class="item_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <button id='shop-btn' onClick={() =>navigate('/shop')}>
+            Shop All
+          </button>
+        </div>
+        <div class="overSlide_right">
+          <img id="kulich" src={Basket} alt=""/>
         </div>
       </SwiperSlide>
     </Swiper>

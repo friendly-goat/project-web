@@ -41,38 +41,40 @@ const Login = () => {
         {inputFields.map((input, index) => {
           return (
             <div key={index}>
-              <label htmlFor="email">
-                <b>email </b>
-              </label>
-              <input
-                type="text"
-                placeholder="Enter email"
-                name="email"
-                value={input.email}
-                onChange={(event) => handleFormChange(index, event)}
-                required
-              ></input>
-              <br />
-              <br />
-              <label htmlFor="password">
-                <b>Password </b>
-              </label>
-              <input
-                type="password"
-                placeholder="Enter Password"
-                name="password"
-                value={input.password}
-                onChange={(event) => handleFormChange(index, event)}
-                required
-              ></input>
-              <br />
-              <br />
+              <fieldset>
+                <legend>Login</legend>
+                <label htmlFor="email">
+                  <b>email </b>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter email"
+                  name="email"
+                  value={input.email}
+                  onChange={(event) => handleFormChange(index, event)}
+                  required
+                ></input>
+                <br />
+                <br />
+                <label htmlFor="password">
+                  <b>Password </b>
+                </label>
+                <input
+                  type="password"
+                  placeholder="Enter Password"
+                  name="password"
+                  value={input.password}
+                  onChange={(event) => handleFormChange(index, event)}
+                  required
+                ></input>
+                <br />
+                <br />
+              </fieldset>
             </div>
           );
         })}
       </form>
-      <button onClick={login}>Submit</button>
-      <br />
+      <button className="submit-btn" onClick={login}>Submit</button>
       <br />
       <Link to="/signup">Sign up</Link>
       </div>

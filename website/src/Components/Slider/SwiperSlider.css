@@ -36,16 +36,75 @@
   z-index: 1;
 }
 
-.overSlide {
+.overSlide_left {
+  margin: auto;
+  left: 40vh;
   position: absolute;
+  width: 30%;
+  z-index: 2;
+  text-align: start;
+}
+
+.item_name {
+  margin-bottom: 20px;
+}
+
+.item_description {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+#shop-btn{
+  background-color: transparent;
+  display: inline-block;
+  width: 158px;
+  height: 38px;
+  line-height: 38px;
+  padding: 0;
+  margin: 0;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .2s;
+
+}
+
+#shop-btn:hover{
+  /* font-family: 'Roboto', serif; */
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: black;
+  color: white;
+  padding-left: auto;
+  padding-right: auto;
+  /* line-height: 1em; */
+  object-fit: contain;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.overSlide_right {
+  margin: auto;
+  right: 18vh;
+  position: absolute;
+  width: 30%;
   z-index: 2;
 }
-#shop-btn{
-  background-color: blue;
-  width: calc(100% + 10px);
-  border-radius: 20px;
-  
+
+#kulich{
+  height: 250px;
+  width: 250px;
+  padding-top: 10px;
 }
-#shop-link{
-  color: black;
+
+#basket, #pasha {
+  height: 250px;
+  width: 250px;
 }
