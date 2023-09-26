@@ -1,4 +1,5 @@
 MVP: 
+    make it way better -- 9/25/2023
     Order-flow website
     Full catolog shop (interactive)
     Good looking frontend with css/html
